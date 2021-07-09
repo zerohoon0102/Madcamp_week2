@@ -21,11 +21,6 @@ import {
 const Tabs = createBottomTabNavigator();
 
 export default class App extends React.Component {
-  state = {
-    id: '',
-    password: '',
-  };
-
   render() {
     return (
       <NavigationContainer>
@@ -46,7 +41,7 @@ export default class App extends React.Component {
               }
 
               // You can return any component that you like here!
-              return <Icon name={iconName} size={size} color={color} />;
+              return <Icon name={iconName} size={size} color={'#0C579F'} />;
             },
           })}
           tabBarOptions={{
