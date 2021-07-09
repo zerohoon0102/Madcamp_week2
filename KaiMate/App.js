@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import SignHome from './login/SignHome';
 import {
   Button,
   StyleSheet,
@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 function HomeScreen({navigation}) {
   return (
@@ -26,7 +26,7 @@ function HomeScreen({navigation}) {
   );
 }
 
-function DetailsScreen({navigation}) {
+/*function DetailsScreen({navigation}) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Details Screen</Text>
@@ -42,7 +42,7 @@ function DetailsScreen({navigation}) {
       />
     </View>
   );
-}
+}*/
 
 export default class App extends React.Component {
   state = {
@@ -53,10 +53,12 @@ export default class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Tab.Navigator initialRouteName="Home">
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Details" component={DetailsScreen} />
-        </Tab.Navigator>
+        <Stack.Navigator
+          screenOptions={{headerShown: false}}
+          initialRouteName="Sign">
+          <Stack.Screen name="Sign" component={SignHome} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     );
   }
