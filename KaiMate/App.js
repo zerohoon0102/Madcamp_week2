@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  Button,
   StyleSheet,
   Text,
   View,
@@ -10,19 +11,20 @@ import {
 
 export default class App extends React.Component {
   state = {
-    email: '',
+    id: '',
     password: '',
   };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.logo}>HeyAPP</Text>
+        <Text style={styles.logo}>KaiMate</Text>
         <View style={styles.inputView}>
           <TextInput
             style={styles.inputText}
-            placeholder="Email..."
+            placeholder="ID..."
             placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({email: text})}
+            onChangeText={text => this.setState({id: text})}
           />
         </View>
         <View style={styles.inputView}>
@@ -37,12 +39,14 @@ export default class App extends React.Component {
         <TouchableOpacity>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.loginBtn}>
-          <Text style={styles.loginText}>LOGIN</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.loginText}>Signup</Text>
-        </TouchableOpacity>
+        <View style={styles.signInUp}>
+          <TouchableOpacity id="loginBtn" style={styles.loginBtn}>
+            <Text style={styles.loginText}>Sign In</Text>
+          </TouchableOpacity>
+          <TouchableOpacity id="signUpBtn" style={styles.loginBtn}>
+            <Text style={styles.loginText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -51,7 +55,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: '#FFC300',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     width: '80%',
-    backgroundColor: '#465881',
+    backgroundColor: 'white',
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
@@ -72,23 +76,26 @@ const styles = StyleSheet.create({
   },
   inputText: {
     height: 50,
-    color: 'white',
+    color: 'black',
   },
   forgot: {
-    color: 'white',
+    color: 'black',
     fontSize: 11,
   },
   loginBtn: {
-    width: '80%',
+    width: '20%',
     backgroundColor: '#fb5b5a',
-    borderRadius: 25,
-    height: 50,
+    borderRadius: 15,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 40,
-    marginBottom: 10,
+    marginTop: 10,
+    marginRight: 10,
   },
   loginText: {
-    color: 'white',
+    color: 'black',
+  },
+  signInUp: {
+    flexDirection: 'row',
   },
 });
