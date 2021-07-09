@@ -37,7 +37,7 @@ function SignIn({navigation}) {
         <TouchableOpacity
           id="loginBtn"
           style={styles.loginBtn}
-          onPress={() => navigation.replace('Home')}>
+          onPress={() => navigation.replace('Main')}>
           <Text style={styles.loginText}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity
