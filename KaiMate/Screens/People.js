@@ -31,20 +31,34 @@ const data = [
     Total: '5',
     Rate: '4.7',
   },
+  {
+    id: '4',
+    Restaurant: '신떡',
+    Buildin: '신학관',
+    Time: '19:30',
+    Current: '2',
+    Total: '5',
+    Rate: '4.8',
+  },
 ];
 
 export default function People() {
   return (
     <View style={styles.container}>
-      <Text>참여 중인 파티</Text>
+      <Text style={styles.header}>참여 중인 파티</Text>
       <FlatList
         data={data}
-        renderItem={({Item}) => (
-          //<CurrentPeople style={styles.people} item={Item} />
-          <Text>{Item.Restaurant}</Text>
+        renderItem={({item}) => (
+          <CurrentPeople style={styles.people} items={item} />
         )}
       />
-      <Text>참여 중인 파티</Text>
+      <Text style={styles.header}>참여 중인 파티</Text>
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <CurrentPeople style={styles.people} items={item} />
+        )}
+      />
     </View>
   );
 }
@@ -55,5 +69,7 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16,
   },
-  //people: {},
+  header: {
+    fontSize: 30,
+  },
 });

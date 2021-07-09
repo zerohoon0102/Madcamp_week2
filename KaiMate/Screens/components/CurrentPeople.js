@@ -1,33 +1,37 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-const CurrentPeople = ({item}) => {
-  <View style={styles.container}>
-    <View style={styles.text}>
-      <Text>
-        {item.Restaurant}/{item.Buildin}
-      </Text>
-      <Text>{item.Time} 주문 예정</Text>
-      <Text>
-        {item.Current}/{item.Total}
-      </Text>
-      <Text>사람들 평균 평점 : {item.Rate}/5</Text>
+const CurrentPeople = ({items}) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.text}>
+        <Text>
+          {items.Restaurant}/{items.Buildin}
+        </Text>
+        <Text>{items.Time} 주문 예정</Text>
+        <Text>
+          {items.Current}/{items.Total}
+        </Text>
+        <Text>사람들 평균 평점 : {items.Rate}/5</Text>
+      </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.text}>-</Text>
+      </TouchableOpacity>
     </View>
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.text}>-</Text>
-    </TouchableOpacity>
-  </View>;
+  );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flexDirection: 'row',
+  },
   text: {
     fontSize: 30,
     textAlign: 'center',
     color: '#0C579F',
   },
   button: {
-    //backgroundColor: 'green',
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
     width: 70,
