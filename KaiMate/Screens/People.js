@@ -11,7 +11,6 @@ const data = [
     Current: '2',
     Total: '3',
     Rate: '4.5',
-    id: '1',
   },
   {
     id: '2',

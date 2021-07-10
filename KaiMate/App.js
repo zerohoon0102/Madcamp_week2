@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SignHome from './login/SignHome';
-import HomeScreen from './Screens/HomeScreen';
+import HomeScreen from './Screens/Hometab/HomeScreen';
 import People from './Screens/People';
 import Like from './Screens/Like';
 import Setting from './Screens/Settings';
@@ -59,11 +59,6 @@ function MainScreen({navigation}) {
 }
 
 export default class App extends React.Component {
-  state = {
-    id: '',
-    password: '',
-  };
-
   render() {
     return (
       <NavigationContainer>
