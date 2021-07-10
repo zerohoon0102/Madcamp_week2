@@ -26,6 +26,7 @@ function MainScreen({navigation}) {
     <NavigationContainer independent={true}>
       <Tabs.Navigator
         initialRouteName="Home"
+        backBehavior="none"
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
