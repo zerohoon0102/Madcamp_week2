@@ -77,10 +77,10 @@ export default function People() {
     <View style={styles.container}>
       <SectionList
         sections={data}
-        //keyExtractor={(item, index) => item + index}
+        keyExtractor={(item, index) => item + index}
         renderItem={({item}) => <CurrentPeople items={item} />}
         renderSectionHeader={({section: {title}}) => (
-          <Text style={{fontSize: 30}}>{title}</Text>
+          <Text style={{fontSize: 30, fontFamily: 'BMJUA_ttf'}}>{title}</Text>
         )}
       />
     </View>

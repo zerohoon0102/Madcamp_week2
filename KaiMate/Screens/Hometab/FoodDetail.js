@@ -15,9 +15,6 @@ export default function FoodDetail({navigation}) {
         <TouchableOpacity style={styles.topTabBtn}>
           <Text style={styles.topTabText}>Store</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.topTabBtn}>
-          <Text style={styles.topTabText}>Group</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -46,5 +43,6 @@ const styles = StyleSheet.create({
   },
   topTabText: {
     fontFamily: 'BMJUA_ttf',
+    fontSize: 20,
   },
 });

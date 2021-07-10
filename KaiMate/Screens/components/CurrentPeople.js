@@ -16,18 +16,20 @@ const CurrentPeople = ({items}) => {
 
       <View style={styles.context}>
         <View style={styles.tab1}>
-          <Text>{items.Time}</Text>
-          <Text>주문 예정</Text>
+          <Text style={{fontFamily: 'BMJUA_ttf'}}>{items.Time}</Text>
+          <Text style={{fontFamily: 'BMJUA_ttf'}}>주문 예정</Text>
         </View>
         <View style={styles.tab2}>
-          <Text>모인사람</Text>
-          <Text>
+          <Text style={{fontFamily: 'BMJUA_ttf'}}>모인사람</Text>
+          <Text style={{fontFamily: 'BMJUA_ttf'}}>
             {items.Current}/{items.Total}
           </Text>
         </View>
         <View style={styles.tab3}>
-          <Icon name="people-circle-outline">별점평균</Icon>
-          <Text>{items.Rate}/5</Text>
+          <Icon name="people-circle-outline">
+            <Text style={{fontFamily: 'BMJUA_ttf'}}>별점평균</Text>
+          </Icon>
+          <Text style={{fontFamily: 'BMJUA_ttf'}}>{items.Rate}/5</Text>
         </View>
       </View>
     </View>
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
+    fontFamily: 'BMJUA_ttf',
   },
   context: {
     flexDirection: 'row',
