@@ -37,11 +37,11 @@ const CurrentPeople = ({items}) => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 20,
+    borderWidth: 1,
   },
 
   Res_Buildin: {
     flexDirection: 'row',
-    marginTop: 10,
     flex: 3,
     fontSize: 20,
     borderWidth: 1,
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
   },
   Res_Builidin_text: {
     flex: 3,
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom: 10,
     fontSize: 20,
   },
   context: {
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 100,
-    marginBottom: 20,
+    marginBottom: 10,
     marginRight: 4,
   },
   buttonText: {
