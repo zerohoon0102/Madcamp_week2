@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16,
+    backgroundColor: 'white',
   },
   header: {
     fontSize: 30,
