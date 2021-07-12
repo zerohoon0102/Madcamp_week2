@@ -69,63 +69,48 @@ const data = [
 export default function FoodType({navigation}) {
   return (
     <View style={styles.container}>
-      <View style={styles.iconContainer}>
+      <View style={styles.searchContainer}>
         <TouchableOpacity
-          style={styles.iconBtn}
-          onPress={() => navigation.navigate('Detail')}>
-          <Image
-            style={styles.iconImage}
-            source={require('../../image/krFoodIcon.jpg')}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.iconBtn}
-          onPress={() => navigation.navigate('Detail')}>
-          <Image
-            style={styles.iconImage}
-            source={require('../../image/cnFoodIcon.jpg')}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.iconBtn}
-          onPress={() => navigation.navigate('Detail')}>
-          <Image
-            style={styles.iconImage}
-            source={require('../../image/jpFoodIcon.jpg')}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.iconBtn}
-          onPress={() => navigation.navigate('Detail')}>
-          <Image
-            style={styles.iconImage}
-            source={require('../../image/gbFoodIcon.jpg')}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.iconBtn}
-          onPress={() => navigation.navigate('Detail')}>
-          <Image
-            style={styles.iconImage}
-            source={require('../../image/ngFoodIcon.jpg')}
-          />
+          style={styles.searchTch}
+          onPress={() => navigation.navigate('Search')}>
+          <Text style={styles.searchText}>가게 검색 >></Text>
         </TouchableOpacity>
       </View>
       <View style={styles.groupContainer}>
         <View style={styles.topTab}>
           <TouchableOpacity style={styles.topTabBtn} under>
+            <Image
+              style={styles.iconImage}
+              source={require('../../image/krFoodIcon.jpg')}
+            />
             <Text style={styles.topTabText}>한식</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.topTabBtn}>
+            <Image
+              style={styles.iconImage}
+              source={require('../../image/cnFoodIcon.jpg')}
+            />
             <Text style={styles.topTabText}>중식</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.topTabBtn}>
+            <Image
+              style={styles.iconImage}
+              source={require('../../image/jpFoodIcon.jpg')}
+            />
             <Text style={styles.topTabText}>일식</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.topTabBtn}>
+            <Image
+              style={styles.iconImage}
+              source={require('../../image/gbFoodIcon.jpg')}
+            />
             <Text style={styles.topTabText}>양식</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.topTabBtn}>
+            <Image
+              style={styles.iconImage}
+              source={require('../../image/ngFoodIcon.jpg')}
+            />
             <Text style={styles.topTabText}>야식/분식</Text>
           </TouchableOpacity>
         </View>
@@ -153,35 +138,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  searchContainer: {
+    width: '100%',
+    alignItems: 'flex-end',
+    marginVertical: 5,
+  },
+  searchTch: {
+    width: '20%',
+    height: 30,
+    justifyContent: 'center',
+    backgroundColor: '#0C579F',
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  searchText: {
+    fontSize: 12,
+    fontFamily: 'BMJUA_ttf',
+    color: 'white',
+  },
   groupContainer: {
     width: '100%',
     height: '90%',
-    borderWidth: 1,
-  },
-  iconContainer: {
-    width: '100%',
-    height: '10%',
-    flexDirection: 'row',
-    marginBottom: 10,
-  },
-  iconBtn: {
-    flex: 1,
-    borderRadius: 20,
-    marginRight: 10,
-    marginLeft: 10,
   },
   iconImage: {
-    width: '100%',
-    height: '100%',
-  },
-  iconText: {
-    alignSelf: 'center',
-    fontFamily: 'BMJUA_ttf',
+    width: '70%',
+    height: '70%',
   },
   topTab: {
     flexDirection: 'row',
     width: '100%',
-    height: 40,
+    height: '10%',
     backgroundColor: 'gray',
   },
   topTabBtn: {
@@ -191,6 +177,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginHorizontal: 1,
     marginBottom: 1,
+    marginTop: 1,
   },
   topTabText: {
     fontFamily: 'BMJUA_ttf',
