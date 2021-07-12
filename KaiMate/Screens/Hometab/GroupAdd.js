@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   inputTabTitle: {
-    fontSize: 40,
+    fontSize: 30,
     fontFamily: 'BMJUA_ttf',
   },
   inputContainer: {

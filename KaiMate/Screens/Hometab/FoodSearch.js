@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import Toast from 'react-native-toast-message';
 import {
   Button,
   StyleSheet,
@@ -72,6 +73,10 @@ export default function FoodSearch({navigation}) {
                 storeName: name,
                 storeAdd: address,
                 storeRating: rating,
+              });
+            } else if (storeType === '') {
+              Toast.show({
+                text1: '음식점이 아니므로 그룹에 추가할 수 없습니다.',
               });
             }
           }}
