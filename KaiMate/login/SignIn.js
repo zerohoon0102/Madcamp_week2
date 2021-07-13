@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 function SignIn({navigation}) {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>KaiMate</Text>
@@ -18,7 +20,7 @@ function SignIn({navigation}) {
           style={styles.inputText}
           placeholder="ID..."
           placeholderTextColor="#003f5c"
-          onChangeText={text => this.setState({id: text})}
+          onChangeText={text => setId(text)}
         />
       </View>
       <View style={styles.inputView}>
@@ -27,7 +29,7 @@ function SignIn({navigation}) {
           style={styles.inputText}
           placeholder="Password..."
           placeholderTextColor="#003f5c"
-          onChangeText={text => this.setState({password: text})}
+          onChangeText={text => setPassword(text)}
         />
       </View>
       <TouchableOpacity>
@@ -37,7 +39,27 @@ function SignIn({navigation}) {
         <TouchableOpacity
           id="loginBtn"
           style={styles.loginBtn}
-          onPress={() => navigation.replace('Main')}>
+          onPress={() => {
+            fetch('http://192.249.18.122:80/signIn', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                user_id: id,
+                user_password: password,
+              }),
+            })
+              .then(res => {
+                if (res.status === 400) {
+                  console.log('not correct');
+                } else {
+                  console.log(res);
+                }
+              })
+              .catch(error => console.log('error', error));
+          }}>
           <Text style={styles.loginText}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity
