@@ -17,6 +17,8 @@
 > HomeScreen
 
 우측 상단에 식당을 검색할 수 있는 검색창이 있어 누르면 구글 지도가 띄어진 식당 검색창으로 넘어간다. 아래는 실시간으로 열린 그룹의 리스트가 보여진다. 한식,중식,일식,양식,야식/분식의 다섯 개의 탭을 누르면 각 탭에 해당하는 음식 종류를 포함하는 그룹의 리스트만 필터링되어 보여진다. 각 리스트를 누르면 해당 그룹의 참여할 수 있다.
+
+
 <img width="15%" src="https://user-images.githubusercontent.com/61463592/125505356-c63d63ae-8281-4cfa-be99-a8b42da79743.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125505471-de278fed-2540-4aa1-bd1d-9feffc17e312.png"/>
 
 
