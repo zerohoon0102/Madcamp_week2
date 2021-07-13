@@ -18,8 +18,7 @@
 
 우측 상단에 식당을 검색할 수 있는 검색창이 있어 누르면 구글 지도가 띄어진 식당 검색창으로 넘어간다. 아래는 실시간으로 열린 그룹의 리스트가 보여진다. 한식,중식,일식,양식,야식/분식의 다섯 개의 탭을 누르면 각 탭에 해당하는 음식 종류를 포함하는 그룹의 리스트만 필터링되어 보여진다. 각 리스트를 누르면 해당 그룹의 참여할 수 있다.
 
-
-<img width="15%" src="https://user-images.githubusercontent.com/61463592/125505356-c63d63ae-8281-4cfa-be99-a8b42da79743.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125505471-de278fed-2540-4aa1-bd1d-9feffc17e312.png"/>
+<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516866-b9e7e1f2-3bcf-481a-a49b-95a194ef06d9.png"/>  <img width="15%" src = "![image](https://user-images.githubusercontent.com/61463592/125516952-50723fe4-715b-407c-9c6c-253df9f1a00a.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516987-ea8e6350-9333-4fd0-8e25-52b2f812a19a.png"/>
 
 
 
@@ -27,7 +26,8 @@
 > Search/AddGroup  
 **HomeScreen**에서 검색창으로 넘어왔을 때 나오는 화면으로 검색한 음식점의 정보를 받아와 그룹을 추가할 수 있게 해주는 기능이 구현되어 있다. 검색창에서 그룹을 생성하기 위한 부가적인 정보를 입력하여 추가를 누르면 server에 요청하여 db에 데이터를 추가한다.
 
-<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516866-b9e7e1f2-3bcf-481a-a49b-95a194ef06d9.png"/>  <img width="15%" src = "![image](https://user-images.githubusercontent.com/61463592/125516952-50723fe4-715b-407c-9c6c-253df9f1a00a.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516987-ea8e6350-9333-4fd0-8e25-52b2f812a19a.png"/>
+<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125517264-96609c27-cb59-4149-8e84-c68f4cc8ce22.png"/>  <img width="15%" src ="https://user-images.githubusercontent.com/61463592/125517342-6a9b82ee-ae8b-4bec-8aad-c6004998e513.png"/>
+
    
 
 
