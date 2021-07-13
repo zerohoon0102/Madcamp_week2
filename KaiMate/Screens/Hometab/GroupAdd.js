@@ -1,25 +1,48 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  SectionList,
-  StatusBar,
-  Image,
-} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity, Modal} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
+//import {ModalPicker} from '../components/ModalPicker';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function GroupAdd({route, navigation}) {
   const {storeName, storeAdd, storeRating} = route.params;
+
+  const [chooseData, setchooseData] = useState('종류');
+  const [textColor, settextColor] = useState('black');
+
   return (
     <View style={styles.container}>
       <View style={styles.inputTabBar}>
         <Text style={styles.inputTabTitle}>그룹 추가</Text>
       </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.inputMenu}>가게 이름 : {storeName}</Text>
         <Text style={styles.inputMenu}>가게 주소 : {storeAdd}</Text>
+        <View style={styles.typeContainer}>
+          <Text style={styles.inputMenu}>음식 종류 선택 :</Text>
+
+          <TouchableOpacity style={styles.select}>
+            <Text style={styles.text}>한식</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.select}>
+            <Text style={styles.text}>중식</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.select}>
+            <Text style={styles.text}>일식</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.select}>
+            <Text style={styles.text}>양식</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.select}>
+            <Text style={styles.textk}>야식/분식</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.inputMenuContainer}>
           <Text style={styles.inputMenuText}>배달 건물 : </Text>
           <TextInput
@@ -41,8 +64,10 @@ export default function GroupAdd({route, navigation}) {
             placeholderTextColor="gray"
             style={styles.inputMenuEdit}></TextInput>
         </View>
+
         <Text style={styles.inputMenu}>가게 평점 : {storeRating}</Text>
       </View>
+
       <View style={styles.searchContainer}>
         <TouchableOpacity
           style={styles.searchTch}
@@ -83,6 +108,9 @@ const styles = StyleSheet.create({
     flex: 10,
     paddingTop: '10%',
   },
+  typeContainer: {
+    flexDirection: 'row',
+  },
   inputMenuContainer: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -101,6 +129,16 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   inputMenuEdit: {
+    fontSize: 15,
+    fontFamily: 'BMJUA_ttf',
+    borderWidth: 1,
+    width: '70%',
+    borderColor: 'black',
+    borderRadius: 20,
+    paddingHorizontal: 5,
+  },
+  inputMenuEdit_edit: {
+    flexDirection: 'row',
     fontSize: 15,
     fontFamily: 'BMJUA_ttf',
     borderWidth: 1,
@@ -130,5 +168,37 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'BMJUA_ttf',
     color: 'white',
+  },
+  droppicker: {
+    flexDirection: 'row',
+    //marginLeft: '10',
+  },
+  select: {
+    //flexDirection: 'row',
+    marginLeft: 5,
+    width: 48,
+    height: 45,
+    borderWidth: 1,
+    borderRadius: 100,
+  },
+  text: {
+    marginLeft: 11,
+    marginTop: 14,
+    fontFamily: 'BMJUA_ttf',
+    color: 'black',
+  },
+  textk: {
+    marginLeft: 10,
+    marginTop: 8,
+    fontFamily: 'BMJUA_ttf',
+    color: 'black',
+  },
+  arrow: {
+    marginLeft: 90,
+    marginTop: 3,
+  },
+  button: {
+    width: 15,
+    height: 10,
   },
 });
