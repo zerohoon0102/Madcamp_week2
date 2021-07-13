@@ -27,7 +27,10 @@
 > Search/AddGroup  
 **HomeScreen**에서 검색창으로 넘어왔을 때 나오는 화면으로 검색한 음식점의 정보를 받아와 그룹을 추가할 수 있게 해주는 기능이 구현되어 있다. 검색창에서 그룹을 생성하기 위한 부가적인 정보를 입력하여 추가를 누르면 server에 요청하여 db에 데이터를 추가한다.
 
-<img width="15%" src="https://user-images.githubusercontent.com/61463592/125505569-3657efc2-e785-41c2-b003-341276bad355.png"/>  <img width="15%" src="https://user-images.githubusercontent.com/61463592/125506027-2615f067-1461-42aa-a73f-93fc588e789f.png"/>
+<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516866-b9e7e1f2-3bcf-481a-a49b-95a194ef06d9.png"/>  <img width="15%" src = "![image](https://user-images.githubusercontent.com/61463592/125516952-50723fe4-715b-407c-9c6c-253df9f1a00a.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516987-ea8e6350-9333-4fd0-8e25-52b2f812a19a.png"/>
+   
+
+
 
 > Current/History
 현재 자신이 참여하고 있는 그룹이 뜨고 -를 누르면 해당그룹에서 제외된다. History에서는 자신이 여태까지 참여했던 그룹 리스트가 나온다.
