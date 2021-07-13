@@ -8,11 +8,12 @@ import GroupAdd from './GroupAdd';
 
 const Stack = createStackNavigator();
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen({route, navigation}) {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
+        route={route}
         initialRouteName="Type">
         <Stack.Screen name="Type" component={FoodType} />
         <Stack.Screen name="Search" component={FoodSearch} />

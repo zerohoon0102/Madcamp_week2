@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default function Settings() {
+export default function Settings({route, navigation}) {
+  const {userId, userPassword, userNickname} = route.params;
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -18,7 +19,7 @@ export default function Settings() {
         />
       </View>
       <View style={styles.settingContainer}>
-        <Text>이름 : </Text>
+        <Text>Nickname : {userNickname}</Text>
       </View>
     </View>
   );

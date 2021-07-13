@@ -51,11 +51,16 @@ function SignIn({navigation}) {
                 user_password: password,
               }),
             })
-              .then(res => {
-                if (res.status === 400) {
-                  console.log('not correct');
+              .then(res => res.json())
+              .then(json => {
+                if (json.user_nickname === 'Wrong Info') {
+                  console.log('정보 다시 입력'); //TODO: Toast
                 } else {
-                  console.log(res);
+                  navigation.replace('Main', {
+                    userId: id,
+                    userPassword: password,
+                    userNickname: json.user_nickname,
+                  });
                 }
               })
               .catch(error => console.log('error', error));

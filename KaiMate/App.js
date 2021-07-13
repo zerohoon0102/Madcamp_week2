@@ -21,7 +21,8 @@ import {
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 
-function MainScreen({navigation}) {
+function MainScreen({route, navigation}) {
+  const {userId, userPassword, userNickname} = route.params;
   return (
     <NavigationContainer independent={true}>
       <Tabs.Navigator
@@ -49,10 +50,42 @@ function MainScreen({navigation}) {
           activeTintColor: 'black',
           inactiveTintColor: 'gray',
         }}>
-        <Tabs.Screen name="Home" component={HomeScreen} />
-        <Tabs.Screen name="Like" component={Like} />
-        <Tabs.Screen name="People" component={People} />
-        <Tabs.Screen name="Setting" component={Setting} />
+        <Tabs.Screen
+          name="Home"
+          component={HomeScreen}
+          initialParams={{
+            userId: userId,
+            userPassword: userPassword,
+            userNickname: userNickname,
+          }}
+        />
+        <Tabs.Screen
+          name="Like"
+          component={Like}
+          initialParams={{
+            userId: userId,
+            userPassword: userPassword,
+            userNickname: userNickname,
+          }}
+        />
+        <Tabs.Screen
+          name="People"
+          component={People}
+          initialParams={{
+            userId: userId,
+            userPassword: userPassword,
+            userNickname: userNickname,
+          }}
+        />
+        <Tabs.Screen
+          name="Setting"
+          component={Setting}
+          initialParams={{
+            userId: userId,
+            userPassword: userPassword,
+            userNickname: userNickname,
+          }}
+        />
       </Tabs.Navigator>
     </NavigationContainer>
   );
