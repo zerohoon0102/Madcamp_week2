@@ -9,8 +9,8 @@
 
 회원가입용으로 Nickname,id,password의 정보를 입력해야 하며, Nickname이나 id가 기존에 있던 정보라면 중복되었다는 toast 메시지가 뜬다. id와 password를 이용하여 login하며, id가 잘못되었거나 password가 잘못되면 잘못되었다는 toast 메시지를 띄어준다.  
 
-<img width="15%" src="https://user-images.githubusercontent.com/61463592/125501318-721b5c1e-d7f0-4bb6-8be7-60515b883035.png"/>
-<img width="15%" src="https://user-images.githubusercontent.com/61463592/125504070-26cc3b55-b90d-424a-ae58-f81fd07a62f0.png"/>
+<img width="15%" src="https://user-images.githubusercontent.com/61463592/125501318-721b5c1e-d7f0-4bb6-8be7-60515b883035.png"/>  <img width="15%" src="https://user-images.githubusercontent.com/61463592/125504070-26cc3b55-b90d-424a-ae58-f81fd07a62f0.png"/> <img width="15%" src="https://user-images.githubusercontent.com/61463592/125504813-3594c8a0-b974-43dc-a7ae-97f394d7e895.png"/>  <img width="15%" src="https://user-images.githubusercontent.com/61463592/125504733-4b05eda2-cb77-465c-95cf-4b4eee766b3b.png"/>  
+
 
 
 
