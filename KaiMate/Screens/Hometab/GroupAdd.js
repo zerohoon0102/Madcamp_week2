@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Modal} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Modal,
+  ToastAndroid,
+} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 //import {ModalPicker} from '../components/ModalPicker';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -9,6 +16,10 @@ export default function GroupAdd({route, navigation}) {
 
   const [chooseData, setchooseData] = useState('종류');
   const [textColor, settextColor] = useState('black');
+  const [leastPerson, setLeastPerson] = useState(0);
+  const [deliveryPlace, setDeliveryPlace] = useState('');
+  const [deliveryTime, setDeliveryTime] = useState('');
+  const [foodType, setFoodType] = useState('');
 
   return (
     <View style={styles.container}>
@@ -22,23 +33,33 @@ export default function GroupAdd({route, navigation}) {
         <View style={styles.typeContainer}>
           <Text style={styles.inputMenu}>음식 종류 선택 :</Text>
 
-          <TouchableOpacity style={styles.select}>
+          <TouchableOpacity
+            style={styles.select}
+            onPress={() => setFoodType('한식')}>
             <Text style={styles.text}>한식</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.select}>
+          <TouchableOpacity
+            style={styles.select}
+            onPress={() => setFoodType('중식')}>
             <Text style={styles.text}>중식</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.select}>
+          <TouchableOpacity
+            style={styles.select}
+            onPress={() => setFoodType('일식')}>
             <Text style={styles.text}>일식</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.select}>
+          <TouchableOpacity
+            style={styles.select}
+            onPress={() => setFoodType('양식')}>
             <Text style={styles.text}>양식</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.select}>
+          <TouchableOpacity
+            style={styles.select}
+            onPress={() => setFoodType('야식/분식')}>
             <Text style={styles.textk}>야식/분식</Text>
           </TouchableOpacity>
         </View>
@@ -48,21 +69,24 @@ export default function GroupAdd({route, navigation}) {
           <TextInput
             placeholder="건물을 입력하세요. ex) 사랑관 "
             placeholderTextColor="gray"
-            style={styles.inputMenuEdit}></TextInput>
+            style={styles.inputMenuEdit}
+            onChangeText={text => setDeliveryPlace(text)}></TextInput>
         </View>
         <View style={styles.inputMenuContainer}>
           <Text style={styles.inputMenuText}>모집 인원 : </Text>
           <TextInput
             placeholder="인원을 입력해주세요. ex) 4 "
             placeholderTextColor="gray"
-            style={styles.inputMenuEdit}></TextInput>
+            style={styles.inputMenuEdit}
+            onChangeText={text => setLeastPerson(parseInt(text))}></TextInput>
         </View>
         <View style={styles.inputMenuContainer}>
           <Text style={styles.inputMenuText}>주문 예정 시간 : </Text>
           <TextInput
             placeholder="주문 예정 시간을 입력해주세요. ex) hh/mm "
             placeholderTextColor="gray"
-            style={styles.inputMenuEdit}></TextInput>
+            style={styles.inputMenuEdit}
+            onChangeText={text => setDeliveryTime(text)}></TextInput>
         </View>
 
         <Text style={styles.inputMenu}>가게 평점 : {storeRating}</Text>
@@ -71,7 +95,39 @@ export default function GroupAdd({route, navigation}) {
       <View style={styles.searchContainer}>
         <TouchableOpacity
           style={styles.searchTch}
-          onPress={() => navigation.goBack()}>
+          onPress={() => {
+            if (
+              leastPerson === 0 ||
+              deliveryTime === '' ||
+              foodType === '' ||
+              deliveryPlace === ''
+            ) {
+              ToastAndroid.showWithGravity(
+                '입력되지 않은 정보가 존재합니다.',
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER,
+              );
+            } else {
+              fetch('http://192.249.18.122:80/addGroup', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  storeName: storeName,
+                  storeAdd: storeAdd,
+                  leastPerson: leastPerson,
+                  deliveryPlace: deliveryPlace,
+                  deliveryTime: deliveryTime,
+                  foodType: foodType,
+                }),
+              })
+                .then(res => console.log('add Group ING ....'))
+                .catch(error => console.log('error', error));
+              navigation.goBack();
+            }
+          }}>
           <Text style={styles.searchText}>추가</Text>
         </TouchableOpacity>
         <TouchableOpacity

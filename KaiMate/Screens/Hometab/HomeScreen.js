@@ -13,7 +13,6 @@ export default function HomeScreen({route, navigation}) {
     <NavigationContainer independent={true}>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        route={route}
         initialRouteName="Type">
         <Stack.Screen name="Type" component={FoodType} />
         <Stack.Screen name="Search" component={FoodSearch} />
