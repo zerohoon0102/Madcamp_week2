@@ -24,6 +24,7 @@
 
 > Search/AddGroup  
 **HomeScreen**에서 검색창으로 넘어왔을 때 나오는 화면으로 검색한 음식점의 정보를 받아와 그룹을 추가할 수 있게 해주는 기능이 구현되어 있다. 검색창에서 그룹을 생성하기 위한 부가적인 정보를 입력하여 추가를 누르면 server에 요청하여 db에 데이터를 추가한다.
+
 <img width="15% src="https://user-images.githubusercontent.com/61463592/125505569-3657efc2-e785-41c2-b003-341276bad355.png"/>  <img width="15%" src="https://user-images.githubusercontent.com/61463592/125506027-2615f067-1461-42aa-a73f-93fc588e789f.png"/>
 
 > Current/History
