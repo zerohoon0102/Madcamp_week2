@@ -28,8 +28,6 @@ function MainScreen({route, navigation}) {
 
             if (route.name === 'Home') {
               iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'Like') {
-              iconName = focused ? 'heart' : 'heart-outline';
             } else if (route.name === 'People') {
               iconName = focused ? 'people' : 'people-outline';
             } else if (route.name === 'Setting') {
@@ -47,15 +45,6 @@ function MainScreen({route, navigation}) {
         <Tabs.Screen
           name="Home"
           component={HomeScreen}
-          initialParams={{
-            userId: userId,
-            userPassword: userPassword,
-            userNickname: userNickname,
-          }}
-        />
-        <Tabs.Screen
-          name="Like"
-          component={Like}
           initialParams={{
             userId: userId,
             userPassword: userPassword,
@@ -89,7 +78,7 @@ export default class App extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       SplashScreen.hide();
-    }, 500);
+    }, 1200);
   }
   render() {
     return (
