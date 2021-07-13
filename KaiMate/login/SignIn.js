@@ -7,6 +7,7 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 
 function SignIn({navigation}) {
@@ -53,8 +54,18 @@ function SignIn({navigation}) {
             })
               .then(res => res.json())
               .then(json => {
-                if (json.user_nickname === 'Wrong Info') {
-                  console.log('정보 다시 입력'); //TODO: Toast
+                if (json.user_nickname === 'Wrong ID') {
+                  ToastAndroid.showWithGravity(
+                    '잘못된 ID입니다.',
+                    ToastAndroid.SHORT,
+                    ToastAndroid.CENTER,
+                  );
+                } else if (json.user_nickname === 'Wrong PW') {
+                  ToastAndroid.showWithGravity(
+                    '잘못된 Password입니다.',
+                    ToastAndroid.SHORT,
+                    ToastAndroid.CENTER,
+                  );
                 } else {
                   navigation.replace('Main', {
                     userId: id,

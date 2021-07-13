@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
+  ToastAndroid,
 } from 'react-native';
 
 function SignUp({navigation}) {
@@ -19,20 +20,6 @@ function SignUp({navigation}) {
     <View style={styles.container}>
       <Text style={styles.logo}>Sign Up</Text>
       <View style={styles.signInputView}>
-        <Text style={styles.signInputText}>Nickname : </Text>
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Enter Nickname"
-            placeholderTextColor="#003F5C"
-            onChangeText={text => setNickname(text)}
-          />
-        </View>
-        <TouchableOpacity style={styles.button}>
-          <Icon style={styles.buttonText} name="arrow-forward-outline" />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.signInputView}>
         <Text style={styles.signInputText}>ID : </Text>
         <View style={styles.inputView}>
           <TextInput
@@ -42,9 +29,17 @@ function SignUp({navigation}) {
             onChangeText={text => setId(text)}
           />
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Icon style={styles.buttonText} name="arrow-forward-outline" />
-        </TouchableOpacity>
+      </View>
+      <View style={styles.signInputView}>
+        <Text style={styles.signInputText}>NickName : </Text>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Enter Nickname"
+            placeholderTextColor="#003F5C"
+            onChangeText={text => setNickname(text)}
+          />
+        </View>
       </View>
       <View style={styles.signInputView}>
         <Text style={styles.signInputText}>PW : </Text>
@@ -57,9 +52,6 @@ function SignUp({navigation}) {
             onChangeText={text => setPassword(text)}
           />
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Icon style={styles.buttonText} name="arrow-forward-outline" />
-        </TouchableOpacity>
       </View>
       <View style={styles.signInUp}>
         <TouchableOpacity
@@ -78,9 +70,25 @@ function SignUp({navigation}) {
                 user_password: password,
               }),
             })
-              .then(res => console.log(res))
+              .then(res => {
+                console.log(res.status);
+                if (res.status === 200) {
+                  navigation.goBack();
+                } else if (res.status === 400) {
+                  ToastAndroid.showWithGravity(
+                    '중복되는 ID입니다.',
+                    ToastAndroid.SHORT,
+                    ToastAndroid.CENTER,
+                  );
+                } else {
+                  ToastAndroid.showWithGravity(
+                    '중복되는 닉네임입니다.',
+                    ToastAndroid.SHORT,
+                    ToastAndroid.CENTER,
+                  );
+                }
+              })
               .catch(error => console.log('error', error));
-            navigation.goBack();
           }}>
           <Text style={styles.loginText}>Sign Up</Text>
         </TouchableOpacity>
@@ -114,7 +122,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     height: 20,
     justifyContent: 'center',
-    alignSelf: 'center',
+    marginRight: '15%',
     padding: 20,
   },
   inputText: {
