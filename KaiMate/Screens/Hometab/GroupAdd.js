@@ -121,6 +121,7 @@ export default function GroupAdd({route, navigation}) {
                   deliveryPlace: deliveryPlace,
                   deliveryTime: deliveryTime,
                   foodType: foodType,
+                  storeRating: storeRating,
                 }),
               })
                 .then(res => console.log('add Group ING ....'))

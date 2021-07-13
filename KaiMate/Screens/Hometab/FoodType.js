@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,66 +7,57 @@ import {
   SectionList,
   StatusBar,
   Image,
+  ToastAndroid,
+  SectionListData,
 } from 'react-native';
 import CurrentPeople from '../components/CurrentPeople';
 
 const data = [
   {
     title: '열려있는 그룹',
-    data: [
-      {
-        Restaurant: '엽떡',
-        Buildin: '인사동',
-        Time: '17:30',
-        Current: '2',
-        Total: '3',
-        Rate: '4.5',
-      },
-      {
-        Restaurant: '신떡',
-        Buildin: '신학관',
-        Time: '19:30',
-        Current: '2',
-        Total: '5',
-        Rate: '4.8',
-      },
-      {
-        Restaurant: '엽떡',
-        Buildin: '인사동',
-        Time: '17:30',
-        Current: '2',
-        Total: '3',
-        Rate: '4.5',
-      },
-      {
-        Restaurant: '배떡',
-        Buildin: '나래관',
-        Time: '18:00',
-        Current: '3',
-        Total: '4',
-        Rate: '4.0',
-      },
-      {
-        Restaurant: '응떡',
-        Buildin: '매점',
-        Time: '18:30',
-        Current: '5',
-        Total: '5',
-        Rate: '4.7',
-      },
-      {
-        Restaurant: '신떡',
-        Buildin: '신학관',
-        Time: '19:30',
-        Current: '2',
-        Total: '5',
-        Rate: '4.8',
-      },
-    ],
+    data: [],
   },
 ];
 
 export default function FoodType({navigation}) {
+  const [foodType, setFoodType] = useState('');
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [data, setData] = useState([{title: '열려있는 그룹', data: []}]);
+  let dataList = [];
+  fetch('http://192.249.18.122:80/getGroup', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      foodType: '한식',
+    }),
+  })
+    .then(res => res.json())
+    .then(json => {
+      if (json.foodType === 'no Info') {
+        ToastAndroid.showWithGravity(
+          '존재하는 그룹이 없습니다.',
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER,
+        );
+      } else {
+        dataList = [];
+        for (let i = 0; i < json.length; i++) {
+          dataList.push({
+            Restaurant: json[i].storeName,
+            Buildin: json[i].deliveryPlace,
+            Current: String(json[i].curPerson),
+            Total: String(json[i].leastPerson),
+            Rate: json[i].storeRating,
+          });
+        }
+        setData([{title: '열려있는 그룹', data: dataList}]);
+      }
+    })
+    .catch(error => console.log('error', error));
+  console.log(data.data);
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
@@ -78,35 +69,220 @@ export default function FoodType({navigation}) {
       </View>
       <View style={styles.groupContainer}>
         <View style={styles.topTab}>
-          <TouchableOpacity style={styles.topTabBtn} under>
+          <TouchableOpacity
+            style={styles.topTabBtn}
+            onPress={() => {
+              fetch('http://192.249.18.122:80/getGroup', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  foodType: '한식',
+                }),
+              })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.foodType === 'no Info') {
+                    ToastAndroid.showWithGravity(
+                      '존재하는 그룹이 없습니다.',
+                      ToastAndroid.SHORT,
+                      ToastAndroid.CENTER,
+                    );
+                  } else {
+                    dataList = [];
+                    for (let i = 0; i < json.length; i++) {
+                      dataList.push({
+                        Restaurant: json[i].storeName,
+                        Buildin: json[i].deliveryPlace,
+                        Current: String(json[i].curPerson),
+                        Total: String(json[i].leastPerson),
+                        Rate: json[i].storeRating,
+                      });
+                    }
+                    data.data = dataList;
+                    setData([{title: '열려있는 그룹', data: dataList}]);
+                  }
+                })
+                .catch(error => console.log('error', error));
+            }}>
             <Image
               style={styles.iconImage}
               source={require('../../image/krFoodIcon.jpg')}
             />
             <Text style={styles.topTabText}>한식</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.topTabBtn}>
+          <TouchableOpacity
+            style={styles.topTabBtn}
+            onPress={() => {
+              fetch('http://192.249.18.122:80/getGroup', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  foodType: '중식',
+                }),
+              })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.foodType === 'no Info') {
+                    ToastAndroid.showWithGravity(
+                      '존재하는 그룹이 없습니다.',
+                      ToastAndroid.SHORT,
+                      ToastAndroid.CENTER,
+                    );
+                  } else {
+                    dataList = [];
+                    for (let i = 0; i < json.length; i++) {
+                      dataList.push({
+                        Restaurant: json[i].storeName,
+                        Buildin: json[i].deliveryPlace,
+                        Current: String(json[i].curPerson),
+                        Total: String(json[i].leastPerson),
+                        Rate: json[i].storeRating,
+                      });
+                    }
+                    data.data = dataList;
+                    setData([{title: '열려있는 그룹', data: dataList}]);
+                  }
+                })
+                .catch(error => console.log('error', error));
+            }}>
             <Image
               style={styles.iconImage}
               source={require('../../image/cnFoodIcon.jpg')}
             />
             <Text style={styles.topTabText}>중식</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.topTabBtn}>
+          <TouchableOpacity
+            style={styles.topTabBtn}
+            onPress={() => {
+              fetch('http://192.249.18.122:80/getGroup', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  foodType: '일식',
+                }),
+              })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.foodType === 'no Info') {
+                    ToastAndroid.showWithGravity(
+                      '존재하는 그룹이 없습니다.',
+                      ToastAndroid.SHORT,
+                      ToastAndroid.CENTER,
+                    );
+                  } else {
+                    dataList = [];
+                    for (let i = 0; i < json.length; i++) {
+                      dataList.push({
+                        Restaurant: json[i].storeName,
+                        Buildin: json[i].deliveryPlace,
+                        Current: String(json[i].curPerson),
+                        Total: String(json[i].leastPerson),
+                        Rate: json[i].storeRating,
+                      });
+                    }
+                    data.data = dataList;
+                    setData([{title: '열려있는 그룹', data: dataList}]);
+                  }
+                })
+                .catch(error => console.log('error', error));
+            }}>
             <Image
               style={styles.iconImage}
               source={require('../../image/jpFoodIcon.jpg')}
             />
             <Text style={styles.topTabText}>일식</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.topTabBtn}>
+          <TouchableOpacity
+            style={styles.topTabBtn}
+            onPress={() => {
+              fetch('http://192.249.18.122:80/getGroup', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  foodType: '양식',
+                }),
+              })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.foodType === 'no Info') {
+                    ToastAndroid.showWithGravity(
+                      '존재하는 그룹이 없습니다.',
+                      ToastAndroid.SHORT,
+                      ToastAndroid.CENTER,
+                    );
+                  } else {
+                    dataList = [];
+                    for (let i = 0; i < json.length; i++) {
+                      dataList.push({
+                        Restaurant: json[i].storeName,
+                        Buildin: json[i].deliveryPlace,
+                        Current: String(json[i].curPerson),
+                        Total: String(json[i].leastPerson),
+                        Rate: json[i].storeRating,
+                      });
+                    }
+                    data.data = dataList;
+                    setData([{title: '열려있는 그룹', data: dataList}]);
+                  }
+                })
+                .catch(error => console.log('error', error));
+            }}>
             <Image
               style={styles.iconImage}
               source={require('../../image/gbFoodIcon.jpg')}
             />
             <Text style={styles.topTabText}>양식</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.topTabBtn}>
+          <TouchableOpacity
+            style={styles.topTabBtn}
+            onPress={() => {
+              fetch('http://192.249.18.122:80/getGroup', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  foodType: '야식/분식',
+                }),
+              })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.foodType === 'no Info') {
+                    ToastAndroid.showWithGravity(
+                      '존재하는 그룹이 없습니다.',
+                      ToastAndroid.SHORT,
+                      ToastAndroid.CENTER,
+                    );
+                  } else {
+                    dataList = [];
+                    for (let i = 0; i < json.length; i++) {
+                      dataList.push({
+                        Restaurant: json[i].storeName,
+                        Buildin: json[i].deliveryPlace,
+                        Current: String(json[i].curPerson),
+                        Total: String(json[i].leastPerson),
+                        Rate: json[i].storeRating,
+                      });
+                    }
+                    data.data = dataList;
+                    setData([{title: '열려있는 그룹', data: dataList}]);
+                  }
+                })
+                .catch(error => console.log('error', error));
+            }}>
             <Image
               style={styles.iconImage}
               source={require('../../image/ngFoodIcon.jpg')}
