@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -9,14 +9,8 @@ import People from './Screens/People';
 import Like from './Screens/Like';
 import Setting from './Screens/Settings';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
+import {} from 'react-native';
 
 const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -92,6 +86,11 @@ function MainScreen({route, navigation}) {
 }
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 500);
+  }
   render() {
     return (
       <NavigationContainer>
