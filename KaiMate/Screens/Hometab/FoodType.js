@@ -18,46 +18,10 @@ const data = [
     data: [],
   },
 ];
-
+let dataList = [];
 export default function FoodType({navigation}) {
-  const [foodType, setFoodType] = useState('');
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [befFoodType, setBefFoodType] = useState('');
   const [data, setData] = useState([{title: '열려있는 그룹', data: []}]);
-  let dataList = [];
-  fetch('http://192.249.18.122:80/getGroup', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      foodType: '한식',
-    }),
-  })
-    .then(res => res.json())
-    .then(json => {
-      if (json.foodType === 'no Info') {
-        ToastAndroid.showWithGravity(
-          '존재하는 그룹이 없습니다.',
-          ToastAndroid.SHORT,
-          ToastAndroid.CENTER,
-        );
-      } else {
-        dataList = [];
-        for (let i = 0; i < json.length; i++) {
-          dataList.push({
-            Restaurant: json[i].storeName,
-            Buildin: json[i].deliveryPlace,
-            Current: String(json[i].curPerson),
-            Total: String(json[i].leastPerson),
-            Rate: json[i].storeRating,
-          });
-        }
-        setData([{title: '열려있는 그룹', data: dataList}]);
-      }
-    })
-    .catch(error => console.log('error', error));
-  console.log(data.data);
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
@@ -90,18 +54,22 @@ export default function FoodType({navigation}) {
                       ToastAndroid.SHORT,
                       ToastAndroid.CENTER,
                     );
+                    dataList = [];
+                    setData([{title: '열려있는 그룹', data: dataList}]);
                   } else {
                     dataList = [];
                     for (let i = 0; i < json.length; i++) {
                       dataList.push({
                         Restaurant: json[i].storeName,
                         Buildin: json[i].deliveryPlace,
+                        Time: json[i].deliveryTime,
                         Current: String(json[i].curPerson),
                         Total: String(json[i].leastPerson),
                         Rate: json[i].storeRating,
                       });
                     }
                     data.data = dataList;
+                    console.log(dataList);
                     setData([{title: '열려있는 그룹', data: dataList}]);
                   }
                 })
@@ -134,12 +102,15 @@ export default function FoodType({navigation}) {
                       ToastAndroid.SHORT,
                       ToastAndroid.CENTER,
                     );
+                    dataList = [];
+                    setData([{title: '열려있는 그룹', data: dataList}]);
                   } else {
                     dataList = [];
                     for (let i = 0; i < json.length; i++) {
                       dataList.push({
                         Restaurant: json[i].storeName,
                         Buildin: json[i].deliveryPlace,
+                        Time: json[i].deliveryTime,
                         Current: String(json[i].curPerson),
                         Total: String(json[i].leastPerson),
                         Rate: json[i].storeRating,
@@ -178,17 +149,21 @@ export default function FoodType({navigation}) {
                       ToastAndroid.SHORT,
                       ToastAndroid.CENTER,
                     );
+                    dataList = [];
+                    setData([{title: '열려있는 그룹', data: dataList}]);
                   } else {
                     dataList = [];
                     for (let i = 0; i < json.length; i++) {
                       dataList.push({
                         Restaurant: json[i].storeName,
                         Buildin: json[i].deliveryPlace,
+                        Time: json[i].deliveryTime,
                         Current: String(json[i].curPerson),
                         Total: String(json[i].leastPerson),
                         Rate: json[i].storeRating,
                       });
                     }
+                    console.log(dataList);
                     data.data = dataList;
                     setData([{title: '열려있는 그룹', data: dataList}]);
                   }
@@ -222,12 +197,15 @@ export default function FoodType({navigation}) {
                       ToastAndroid.SHORT,
                       ToastAndroid.CENTER,
                     );
+                    dataList = [];
+                    setData([{title: '열려있는 그룹', data: dataList}]);
                   } else {
                     dataList = [];
                     for (let i = 0; i < json.length; i++) {
                       dataList.push({
                         Restaurant: json[i].storeName,
                         Buildin: json[i].deliveryPlace,
+                        Time: json[i].deliveryTime,
                         Current: String(json[i].curPerson),
                         Total: String(json[i].leastPerson),
                         Rate: json[i].storeRating,
@@ -266,12 +244,15 @@ export default function FoodType({navigation}) {
                       ToastAndroid.SHORT,
                       ToastAndroid.CENTER,
                     );
+                    dataList = [];
+                    setData([{title: '열려있는 그룹', data: dataList}]);
                   } else {
                     dataList = [];
                     for (let i = 0; i < json.length; i++) {
                       dataList.push({
                         Restaurant: json[i].storeName,
                         Buildin: json[i].deliveryPlace,
+                        Time: json[i].deliveryTime,
                         Current: String(json[i].curPerson),
                         Total: String(json[i].leastPerson),
                         Rate: json[i].storeRating,
