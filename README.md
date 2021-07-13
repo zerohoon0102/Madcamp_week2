@@ -17,9 +17,21 @@
 > HomeScreen
 
 우측 상단에 식당을 검색할 수 있는 검색창이 있어 누르면 구글 지도가 띄어진 식당 검색창으로 넘어간다. 아래는 실시간으로 열린 그룹의 리스트가 보여진다. 한식,중식,일식,양식,야식/분식의 다섯 개의 탭을 누르면 각 탭에 해당하는 음식 종류를 포함하는 그룹의 리스트만 필터링되어 보여진다. 각 리스트를 누르면 해당 그룹의 참여할 수 있다.
+<img width="15%" src="https://user-images.githubusercontent.com/61463592/125505356-c63d63ae-8281-4cfa-be99-a8b42da79743.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125505471-de278fed-2540-4aa1-bd1d-9feffc17e312.png"/>
+
+
+
 
 > Search/AddGroup  
 **HomeScreen**에서 검색창으로 넘어왔을 때 나오는 화면으로 검색한 음식점의 정보를 받아와 그룹을 추가할 수 있게 해주는 기능이 구현되어 있다. 검색창에서 그룹을 생성하기 위한 부가적인 정보를 입력하여 추가를 누르면 server에 요청하여 db에 데이터를 추가한다.
+<img width="15% src="https://user-images.githubusercontent.com/61463592/125505569-3657efc2-e785-41c2-b003-341276bad355.png"/>  <img width="15%" src="https://user-images.githubusercontent.com/61463592/125506027-2615f067-1461-42aa-a73f-93fc588e789f.png"/>
+
+> Current/History
+현재 자신이 참여하고 있는 그룹이 뜨고 -를 누르면 해당그룹에서 제외된다. History에서는 자신이 여태까지 참여했던 그룹 리스트가 나온다.
+<img width="15% src = "https://user-images.githubusercontent.com/61463592/125506609-044c31de-c4b4-421c-8607-036b28345fa8.png"/>
+
 
 > Settings  
 로그인한 유저의 정보를 보여주는 화면으로 image를 server에 저장하려 했지만 실패하였다. 비밀번호 변경, 닉네임 변경 기능을 추가할 예정.
+<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125506160-bc0673eb-ac67-4447-95a3-d621a7293fdf.png"/>
+
