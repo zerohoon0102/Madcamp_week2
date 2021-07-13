@@ -18,7 +18,7 @@
 
 우측 상단에 식당을 검색할 수 있는 검색창이 있어 누르면 구글 지도가 띄어진 식당 검색창으로 넘어간다. 아래는 실시간으로 열린 그룹의 리스트가 보여진다. 한식,중식,일식,양식,야식/분식의 다섯 개의 탭을 누르면 각 탭에 해당하는 음식 종류를 포함하는 그룹의 리스트만 필터링되어 보여진다. 각 리스트를 누르면 해당 그룹의 참여할 수 있다.
 
-<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516866-b9e7e1f2-3bcf-481a-a49b-95a194ef06d9.png"/>  <img width="15%" src = "![image](https://user-images.githubusercontent.com/61463592/125516952-50723fe4-715b-407c-9c6c-253df9f1a00a.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516987-ea8e6350-9333-4fd0-8e25-52b2f812a19a.png"/>
+<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516866-b9e7e1f2-3bcf-481a-a49b-95a194ef06d9.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516952-50723fe4-715b-407c-9c6c-253df9f1a00a.png"/>  <img width="15%" src = "https://user-images.githubusercontent.com/61463592/125516987-ea8e6350-9333-4fd0-8e25-52b2f812a19a.png"/>
 
 
 
