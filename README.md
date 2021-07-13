@@ -32,7 +32,7 @@
 > Current/History
 현재 자신이 참여하고 있는 그룹이 뜨고 -를 누르면 해당그룹에서 제외된다. History에서는 자신이 여태까지 참여했던 그룹 리스트가 나온다.
 
-<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125507259-f271df07-b362-40aa-ad30-edffbae140c1.png/>
+<img width="15%" src = "https://user-images.githubusercontent.com/61463592/125507259-f271df07-b362-40aa-ad30-edffbae140c1.png"/>
 
 
 
